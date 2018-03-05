@@ -18,9 +18,6 @@ truefactors = c("gang_affiliation","police_district_last_contact","residence_dis
 # Indicate imputation method
 impute = "none"
 
-# Indicate code(s) for missing data
-missing = c("", " ", "X")
-
 ########## Source helper functions
 source("utils.R")
 
