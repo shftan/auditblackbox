@@ -24,9 +24,6 @@ truefactors = "precinct"
 # Indicate imputation method
 impute = "mean"
 
-# Indicate code(s) for missing data
-missing = c("", " ", "X")
-
 ########## Source helper functions
 source("utils.R")
 
