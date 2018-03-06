@@ -6,4 +6,4 @@ This GitHub repo has:
 
 for the paper "Auditing Black-Box Models Using Transparent Model Distillation With Side Information" https://arxiv.org/abs/1710.06169
 
-####### INSERT MICROSOFT DISCLAIMER AND AUTHORS HERE
+Please email ht395@cornell.edu if you have questions about this repo.
