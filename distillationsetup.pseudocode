@@ -66,7 +66,7 @@ mgcvpredlogit = predict(mgcvmodel,newdata=testing,type="link")
 # sufficiently powerful, which can be measured by looking at the fidelity of the 
 # student model and accuracy of the outcome model
 # In the paper we use linear models (linear and logistic regression) and GA2Ms. 
-# A barebones implementation of GA2Ms can be found at https://github.com/yinlou/mltk
+# A barebones, publicly available implementation of GA2Ms can be found at https://github.com/yinlou/mltk
 
 ### Create train-validation-test splits and bagging setup if you are doing multiple bags
 trainidx = ###
