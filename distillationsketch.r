@@ -67,5 +67,10 @@ outcomemodel = ###model_predicting_outcome_from_features###
 ########## Compare two models
 # This part depends on what model kind of transparent model class you have used 
 # For model classes where the prediction function is an additive form of features 
-# (e.g. logistic regresssion and GA2Ms used in the paper), you can compare
-# the 
+# (e.g. logistic regresssion and GA2Ms used in the paper)
+# that have the form:
+# student risk score model (regression): y^S = f^S(x) 
+# actual outcomes model (classification): logit(y^O) = f^O(x)
+# you can compare f^S and f^O after scaling them together
+
+### Please email ht395@cornell.edu if you have questions about this code sketch.
