@@ -10,9 +10,12 @@
 ### - Sharad Goel, Justin M. Rao, Ravi Shroff. Precinct or Prejudice? Understanding Racial Disparities in New York City's Stop-and-Frisk Policy. Annals of Applied Statistics 2016
 ### - Elaine Angelino, Nicholas Larus-Stone, Daniel Alabi, Margo Seltzer, Cynthia Rudin. Learning Certifiably Optimal Rule Lists. KDD 2017
 
+########## Dependencies
+library(lubridate)   # for month function, to parse dates
+
 ########## Read data
 datafile = sqf.RData
-load("raw/sqf.RData")
+load(datafile)
 prefix = "stopfrisk"
 
 # Indicate variables that will be the labels
@@ -37,7 +40,6 @@ data$heuristic = 3*data$stopped.bc.object+1*data$stopped.bc.bulge+1*data$additio
 
 ########## Clean up date time information
 ### Create month, day of week, time of day binned into disjoint 4 hour blocks
-library(lubridate) # for month function
 monthofyear = month(data$date)
 data$monthofyear = factor(monthofyear,levels=sort(unique(monthofyear)),labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"))
 data$dayofweek = weekdays(as.Date(data$date))

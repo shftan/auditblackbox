@@ -1,6 +1,11 @@
 ########## This file contains helper functions for data wrangling
 ########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
 
+########## Dependencies
+library(plyr) # for mapvalues function used in change_labels function
+library(digest) # for the hashing function digest used in get_dup_columns function
+library(randomForest) #for na.roughfix used in fix_NAs function
+library(missForest)  # for missForest used in fix_NAs function
 
 # Main function to process and output data
 process_data = function(data,prefix,labels,postfix,impute,truefactors=NULL)
@@ -52,7 +57,6 @@ process_data = function(data,prefix,labels,postfix,impute,truefactors=NULL)
 # Convention used: 
 # - high risk scores -> higher probability of negative outcome (e.g. loan default, recidivism) happening
 # - minority class of actual outcomes label is the negative outcome
-library(plyr) # for mapvalues function
 change_label = function(data,labels,k)
 {
   data_out = data
@@ -222,7 +226,6 @@ get_NA_columns = function(data,dropthreshold)
 }
 
 # Function to get variables that are identical to some other variable
-library(digest) # for the hashing function, digest
 get_dup_columns = function(data)
 {
   dups = duplicated(sapply(data, digest))
@@ -272,9 +275,26 @@ code_NAs = function(data,NAcode)
   return(data)
 }
 
+# Function to split categorical variables with too many categories into multiple variables for random forest imputation
+# Random forest cannot handle categorical variables with too many categories
+split_large = function(data)
+{
+  vars = names(data)
+  large = vector("character")
+  for (i in 1:ncol(data))
+  {
+    if (class(data[,i])=="factor" & length(unique(data[,i]))>53)
+    {
+      large = c(large,vars[i])  
+    }
+  }
+  data_large = data[,large]
+  data_nolarge = data
+  data_nolarge[,large]=NULL
+  return(list(data_large,data_nolarge))
+}
+
 # Function to drop or impute NAs
-library(randomForest) #for na.roughfix
-library(missForest)  # for missForest
 fix_NAs = function(data,impute)
 {
   if (impute=="drop")
