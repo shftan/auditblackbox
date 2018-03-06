@@ -1,4 +1,6 @@
-########## INSERT MICROSOFT DISCLAIMER STATEMENT AND AUTHORS HERE
+########## This file contains data wrangling code to clean the Chicago police data
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
+
 
 ### Data set: Chicago Police "Strategic Subject List" risk score and "Party-To-Violence" actual outcome
 ### Source: https://data.cityofchicago.org/Public-Safety/Strategic-Subject-List/4aki-r3np
@@ -55,5 +57,5 @@ data$age_last_arrest = factor(data$age_last_arrest,levels=c("less than 20","20-3
 data = process_data(data,prefix,labels,postfix,impute,truefactors)
 
 
-### Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
-### Please email ht395@cornell.edu if you face problems running this script.
+########## Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 

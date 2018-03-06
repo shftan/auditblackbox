@@ -1,4 +1,6 @@
-########## INSERT MICROSOFT DISCLAIMER STATEMENT AND AUTHORS HERE
+########## This file contains data wrangling code to clean the ProPublica COMPAS data
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
+
 
 ### Data set: ProPublica COMPAS risk score and recidivism actual outcome
 ### Source: https://www.propublica.org/datastore/dataset/compas-recidivism-risk-score-data-and-analysis
@@ -49,5 +51,5 @@ data = data[,c(keep,labels)]
 data = process_data(data,prefix,labels,postfix,impute)
 
 
-### Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
-### Please email ht395@cornell.edu if you face problems running this script.
+########## Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 

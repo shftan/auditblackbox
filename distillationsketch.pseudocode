@@ -1,8 +1,10 @@
-########## INSERT MICROSOFT DISCLAIMER STATEMENT AND AUTHORS HERE
+########## This file contains a pseudocode sketch of the distillation setup proposed in the paper 
+########## "Auditing Black-Box Models Using Transparent Model Distillation With Side Information" 
+########## https://arxiv.org/abs/1710.06169
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
 
-########## Sketch of distillation setup (pseudo code) 
 
-# Read in data
+########## Read in data
 score = ###vector_of_length_n###
 outcome = ###vector_of_length_n###
 features = ###matrix of n observations and p features###
@@ -55,7 +57,7 @@ tunesp = ### look at current sp value (spnow variable) and sweep a range of othe
 mgcvmodel = gam(outcome~s(score),family="binomial",sp=spnow*tunesp)
 mgcvpredlogit = predict(mgcvmodel,newdata=testing,type="link")
 
-########## Part 2: Train two transparent models (this section is pseudocode / instructions) 
+########## Part 2: Train two transparent models (this section is in pseudocode) 
 # You can use any kind of transparent model class you want as long as the model class is 
 # sufficiently powerful, which can be measured by looking at the fidelity of the 
 # student model and accuracy of the outcome model
@@ -73,7 +75,7 @@ scorestudentmodel = ###model_predicting_score_from_features###
 ### Actual outcomes model
 outcomemodel = ###model_predicting_outcome_from_features###
 
-########## Part 3: Compare two transparent models (this section is pseudocode / instructions) 
+########## Part 3: Compare two transparent models (this section is in high-level instructions) 
 # This part depends on what model kind of transparent model class you have used 
 # For model classes where the prediction function is an additive form of features 
 # (e.g. logistic regresssion and GA2Ms used in the paper)
@@ -82,4 +84,5 @@ outcomemodel = ###model_predicting_outcome_from_features###
 # actual outcomes model (classification): logit(y^O) = f^O(x)
 # you can compare f^S and f^O after scaling them together
 
-### Please email ht395@cornell.edu if you have questions about this code sketch.
+
+########## Please email ht395@cornell.edu if you face problems or have questions about this file.

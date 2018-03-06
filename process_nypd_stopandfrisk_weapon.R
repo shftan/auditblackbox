@@ -1,4 +1,6 @@
-########## INSERT MICROSOFT DISCLAIMER STATEMENT AND AUTHORS HERE
+########## This file contains data wrangling code to clean the NYPD Stop-and-Frisk data
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
+
 
 ### Data set: NYPD Stop and Frisk dataset with heuristic risk score from Goel et al. and Weapon Possession actual outcome
 ### Source 1: https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
@@ -7,7 +9,6 @@
 ### References for cleaning the data set and creating the risk score:
 ### - Sharad Goel, Justin M. Rao, Ravi Shroff. Precinct or Prejudice? Understanding Racial Disparities in New York City's Stop-and-Frisk Policy. Annals of Applied Statistics 2016
 ### - Elaine Angelino, Nicholas Larus-Stone, Daniel Alabi, Margo Seltzer, Cynthia Rudin. Learning Certifiably Optimal Rule Lists. KDD 2017
-
 
 ########## Read data
 datafile = sqf.RData
@@ -79,5 +80,5 @@ data$suspect.eye = factor(data$suspect.eye,levels=c("black","blue","brown","gray
 data = process_data(data,prefix,labels,postfix,impute,truefactors)
 
 
-### Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
-### Please email ht395@cornell.edu if you face problems running this script.
+########## Now you should have two csv files with the same features but one has the risk scores label and the other has the actual outcomes label.
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 

@@ -1,8 +1,6 @@
-########## INSERT MICROSOFT DISCLAIMER STATEMENT AND AUTHORS HERE
+########## This file contains helper functions for data wrangling
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
 
-# Please email ht395@cornell.edu if you face problems running this script.
-
-### Helper functions
 
 # Main function to process and output data
 process_data = function(data,prefix,labels,postfix,impute,truefactors=NULL)
@@ -305,3 +303,6 @@ fix_NAs = function(data,impute)
   else print("Imputation options: drop, mean, predict, none")
   return(data)
 }
+
+
+########## Please email ht395@cornell.edu if you face problems or have questions about this file. 
